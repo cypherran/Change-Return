@@ -5,8 +5,255 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Change_Return"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Change Return" 
+        MinWidth="800"
+        MinHeight="450"
+        Height="450" 
+        ResizeMode="NoResize"
+        Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Label -->
+        <Grid Grid.Row="0">
+            <TextBlock Text="Change Return" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       FontSize="25" 
+                       FontWeight="Bold"/>
+        </Grid>
+
+        <!-- Cost/Amount/Return/Calculate -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="160"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0"
+                       Text="Cost:"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18"/>
+            <TextBox Grid.Column="1"
+                     x:Name="TbCost"
+                     Width="100"
+                     PreviewTextInput="TbCost_PreviewTextInput"
+                     ToolTip="Enter Price Here"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="2"
+                       Text="Paid:"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18"/>
+            <TextBox Grid.Column="3"
+                     x:Name="TbAmount"
+                     Width="100"
+                     PreviewTextInput="TbAmount_PreviewTextInput"
+                     ToolTip="Enter Amount Paid Here"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="4"
+                       Text="Change:"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18"/>
+            <TextBlock Grid.Column="5"
+                     x:Name="TbReturned"
+                     Width="100"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"/>
+            <Button Grid.Column="7"
+                    Content="Calculate"
+                    Width="150"
+                    Height="35"
+                    FontSize="18"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    x:Name="btnCalculate"
+                    Click="BtnCalculate_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="2"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
         
+        <!-- Label -->
+        <Grid Grid.Row="2">
+            <TextBlock Text="Amount Return"
+                       FontSize="18"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontWeight="Bold"
+                       />
+        </Grid>
+
+        <!-- Dollars Returned -->
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Grid.Column="0"
+                       Text="Dollars:"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock Grid.Column="0"
+                       x:Name="TbDollarsReturn"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18"/>
+            </Grid>
+        </Grid>
+
+        <!-- Quarters Returned -->
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Grid.Column="0"
+                       Text="Quarters:"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock Grid.Column="0"
+                       x:Name="TbQuartersReturn"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18"/>
+            </Grid>
+        </Grid>
+
+        <!-- Dimes Returned -->
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Grid.Column="0"
+                       Text="Dimes:"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock Grid.Column="0"
+                       x:Name="TbDimesReturn"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18"/>
+            </Grid>
+        </Grid>
+
+        <!-- Nickles Returned -->
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Grid.Column="0"
+                       Text="Nickles:"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18"/>
+            </Grid>
+            <Grid Grid.Column="6">
+                <TextBlock Grid.Column="0"
+                       x:Name="TbNicklesReturn"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18"/>
+            </Grid>
+        </Grid>
+
+        <!-- Pennies Returned -->
+        <Grid Grid.Row="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Grid.Column="0"
+                       Text="Pennies:"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock Grid.Column="0"
+                       x:Name="TbPenniesReturn"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18"/>
+            </Grid>
+        </Grid>
+
+        <!-- Warning Message -->
+        <Grid Grid.Row="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Grid.Column="0"
+                       x:Name="WarningMessage"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18"/>
+            </Grid>
+        </Grid>
+
+        <!-- Clear -->
+        <Grid Grid.Row="9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="160"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Button Content="Clear"
+                        Width="150"
+                        Height="35"
+                        FontSize="18"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        x:Name="btnClear"
+                        Click="BtnClear_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="2"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
